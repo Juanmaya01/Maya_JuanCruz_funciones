@@ -1,57 +1,57 @@
 # 1 Crear una función que le solicite al usuario el ingreso de un número entero y lo retorne. Punto 13 incluido.
 
-def numero_entero():
+def numero_entero() -> int:
     numero = int(input("Ingrese un numero entero: "))
     return numero
 
 # 2 Crear una función que le solicite al usuario el ingreso de un número flotante y lo retorne. Punto 13 incluido.
 
-def numero_flotante():
+def numero_flotante() -> float:
     numero = float(input("Ingrese un numero flotante: "))
     return numero
 
 # 3 Crear una función que le solicite al usuario el ingreso de una cadena y la retorne. Punto 13 incluido.
 
-def cadena():
+def cadena() -> str:
     texto = input("Ingrese una cadena de texto: ")
     return texto
 
 # 4 Escribir una función que calcule el área de un rectángulo. La función recibe la base y la altura y retorna el área.
 
-def area_rectangulo(base, altura):
+def area_rectangulo(base: float, altura: float) -> float:
     area = base * altura
     return area
 
 # 5 Escribe una función que calcule el área de un círculo. La función debe recibir el radio como parámetro y devolver el área.
 
-def area_circulo(radio):
+def area_circulo(radio: float) -> float:
     import math
     area = math.pi * radio ** 2
     return area
 
 # 6 Crea una función que verifique si un número dado es par o impar. La función debe imprimir un mensaje indicando si el número es par o impar.
 
-def es_par_o_impar(numero):
+def es_par_o_impar(numero: int) -> str:
     return numero % 2 == 0
 
 # 7 Crea una función que verifique si un número dado es par o impar. La función retorna True si el número es par, False en caso contrario.
 
-def es_par(numero):
+def es_par(numero: int) -> str:
     return numero % 2 == 0
 
 # 8 Define una función que encuentre el máximo de tres números. La función debe aceptar tres argumentos y devolver el número más grande.
 
-def maximo_de_tres(num1, num2, num3):
+def maximo_de_tres(num1: float, num2: float, num3: float) -> float:
     return max(num1, num2, num3)
 
 # 9 Diseña una función que calcule la potencia de un número. La función debe recibir la base y el exponente como argumentos y devolver el resultado.
 
-def potencia(base, exponente):
+def potencia(base: float, exponente: float) -> float:
     return base ** exponente
 
 # 10 Crear una función que reciba un número y retorne True si el número es primo, False en caso contrario.
 
-def es_primo(numero):
+def es_primo(numero: int) -> bool:
     if numero < 2:
         return False
     for i in range(2, int(numero**0.5) + 1):
@@ -62,7 +62,7 @@ def es_primo(numero):
 # 11 Crear una función que (utilizando el algoritmo del ejercicio de la guia de for), muestre todos los números primos comprendidos entre entre la unidad y un número ingresado como parámetro. La función retorna la cantidad de números primos encontrados. Modularizar todo lo posible.
 
 # Verifica si un número es primo usando el algoritmo de la guía
-def es_primo(numero):
+def es_primo(numero: int) -> int:
     if numero < 2:
         return False
     for divisor in range(2, (numero // 2) + 1):
@@ -82,14 +82,33 @@ def mostrar_primos(hasta):
 
 # 12 Crear una función que imprima la tabla de multiplicar de un número recibido como parámetro. La función debe aceptar parámetros opcionales (inicio y fin) para definir el rango de multiplicación. Por defecto es del 1 al 10.
 
-def tabla_multiplicar(numero: int, inicio: int = 1, fin: int = 10) -> None:
+def tabla_multiplicar(numero: int, inicio: int = 1, fin: int = 10) -> str:
     for i in range(inicio, fin + 1):
-        print(f"{numero} x {i} = {numero * i}")
-        return
-tabla_multiplicar(5 , 1)
-
-# 13 a
+        resultado = numero * i
+        print(f"{numero} x {i} = {resultado}")
 
 
+# 13 
+
+def verificar_entero(mensaje: str = "Ingrese un numero entero: ") -> int:
+    while True:
+        try:
+            valor = int(input(mensaje))
+            return valor
+        except ValueError:
+            print("Entrada invalida. Por favor, ingrese un numero entero.")
+
+
+def verificar_flotante(mensaje: str = "Ingrese un numero flotante: ") -> float:
+    while True:
+        try:
+            valor = float(input(mensaje))
+            return valor
+        except ValueError:
+            print("Entrada invalida. Por favor, ingrese un numero flotante.")
+
+def verificar_cadena(mensaje: str = "Ingrese una cadena de texto: ") -> str:
+    valor = input(mensaje)
+    return valor
 
 
